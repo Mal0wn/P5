@@ -1,0 +1,72 @@
+
+.nav_onorico,
+.logo,
+.logonorico, 
+.footer,
+.main_container,
+.pict_items
+.items,
+.list_items li {
+	display : flex;
+}
+
+
+
+
+
+ul {
+list-style:none;
+margin-left:0;
+padding-left:0;
+}
+li {
+margin-bottom:15px;/* à adapter */
+}
+
+
+.nav_onorico {
+	max-height: 200px;
+	background-color: #F3E9F1;
+	min-width: 
+	max-width:;
+
+}
+
+.logo {
+	width: 50%;
+	align-items: center;
+	margin: auto;
+}
+
+.logoonorico {
+
+ margin: auto;
+  border:1px solid #F3E9F1;
+  border-radius: 10px;
+}
+
+.main_container {
+	flex-direction: column;
+}
+
+.pict_items { 
+flex-direction: row; }
+
+.pict_items img {
+	max-width: 150px;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0;
+	justify-content: center;
+}
+.footer p {
+	text-align: center;
+}
+
+
+
+.picted { 
+max-width: 20vw;
+}
