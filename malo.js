@@ -8,6 +8,12 @@ console.log(listeTeddies);
 
 listeTeddies.forEach(function(ours) {
 	var bear = document.createElement("li");       // Création d'un élément li
+
+	//ajout de l'evenement
+		bear.addEventListener("click", gotoproduit(ours._id));
+		console.log(ours._id);
+	var aBear = document.createElement("a");       // creation d'un element a 
+	aBear.setAttribute('href','produit.html')	   // ajout d'attribut href & emplacement html	
 	var picBear = document.createElement("img");   // creation de l'elt img
 	picBear.classList.add('picted');               //ajout de class a img
 	picBear.setAttribute('src',ours.imageUrl);     // ajout d'attribut src a img & son emplacement
@@ -18,13 +24,40 @@ listeTeddies.forEach(function(ours) {
 	oursPrice.classList.add('price');              // ajout de la class a la div prix
 	oursPrice.textContent = ours.price;			   // donner le texte "price" du tableau a oursPrice
 
-	bear.appendChild(picBear);                     //ajout des 3 elt créés dans le li 
-	bear.appendChild(oursName);
-	bear.appendChild(oursPrice);
+	aBear.appendChild(picBear);                     //ajout des 3 elt créés dans le a 
+	aBear.appendChild(oursName);
+	aBear.appendChild(oursPrice);
+
+	bear.appendChild(aBear); 					   // ajout de la balise <a> dans mon lit
 
 	document.getElementById("list_items").appendChild(bear); //ajout de li dans la class list_items(ul)
 
+
+
 });
 
+//initialisation données page produit
 
+function gotoproduit(id) {
+	let selectedTeddy; 
 
+	for (let teddy of listeTeddies){
+		if (teddy._id === id) {				//recherche du bon teddy par id
+			selectedTeddy = teddy;
+		} 
+	}
+	console.log(selectedTeddy);
+
+var nameTeddy = document.getElementsByClassName("title_teddy");   //recupérer elt qui porte name teddy
+
+	if(nameTeddy.length > 0 ){										// elimine code err if not good html
+nameTeddy[0].textContent = selectedTeddy.name;						// affecte nom name teddy a l'elt
+}
+
+var picTeddy = document.getElementsByClassName("img_produit");  // recuperer elt qui porte l'img 
+
+	if(picTeddy.length > 0 ) {
+		picTeddy[0].setAttribute("src",selectedTeddy.imageUrl);
+	}
+
+}
