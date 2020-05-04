@@ -22,7 +22,7 @@ listeTeddies.forEach(function(ours) {
 	oursName.textContent = ours.name;			   // Donner le texte "name" du tableau a oursName
 	var oursPrice = document.createElement("div"); // creation de la div pour le prix
 	oursPrice.classList.add('price');              // ajout de la class a la div prix
-	oursPrice.textContent = ours.price;			   // donner le texte "price" du tableau a oursPrice
+	oursPrice.textContent = ours.price +" €";			   // donner le texte "price" du tableau a oursPrice
 
 	aBear.appendChild(picBear);                     //ajout des 3 elt créés dans le a 
 	aBear.appendChild(oursName);
@@ -60,4 +60,12 @@ var picTeddy = document.getElementsByClassName("img_produit");  // recuperer elt
 		picTeddy[0].setAttribute("src",selectedTeddy.imageUrl);
 	}
 
+var descripTeddy = document.getElementById("description");  // recuperer elt qui porte la description
+
+	if(descripTeddy.length > 0 ) {
+		descriptTeddy[0].textContent = selectedTeddy.description;
+	}
+
+
 }
+

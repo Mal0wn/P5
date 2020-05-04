@@ -1,3 +1,17 @@
+@font-face {
+    font-family: 'Capriola';
+    src:url('./font/Capriola-Regular.ttf') format('truetype');    
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'belligerent';
+    src:url('./font/belligerent.ttf') format('truetype');    
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 
 .nav_onorico,
 .logo,
@@ -6,12 +20,44 @@
 .main_container,
 .pict_items
 .items,
-.list_items li {
+.list_items li,
+.list_items,
+.items,
+body,
+h1 {
 	display : flex;
 }
 
 
 
+h1 {
+	font-family: belligerent;
+	color: #261624;
+	font-size: 5em;
+	align-items: baseline;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.fas.fa-shopping-cart{
+	background: -webkit-linear-gradient(0.40turn ,#915cf9, #d28040);
+ 				-webkit-background-clip: text;
+ 	 			-webkit-text-fill-color: transparent;
+ 	margin-right: 10px;
+	
+}
+
+
+
+
+
+body {
+	max-width: 1920px;
+	min-width: 1100px;
+	font-family: 'Capriola', cursive;
+	justify-content: center;
+	flex-direction: column;
+}
 
 
 ul {
@@ -27,8 +73,7 @@ margin-bottom:15px;/* à adapter */
 .nav_onorico {
 	max-height: 200px;
 	background-color: #F3E9F1;
-	min-width: 
-	max-width:;
+	width: 100%;
 
 }
 
@@ -41,32 +86,76 @@ margin-bottom:15px;/* à adapter */
 .logoonorico {
 
  margin: auto;
-  border:1px solid #F3E9F1;
-  border-radius: 10px;
+
 }
 
 .main_container {
 	flex-direction: column;
 }
 
-.pict_items { 
-flex-direction: row; }
-
-.pict_items img {
-	max-width: 150px;
-}
 
 .footer {
 	position: fixed;
 	bottom: 0;
 	justify-content: center;
+	width: 100%;
+	background-color: #F3E9F1; 
+	margin-top: 30px;
 }
 .footer p {
 	text-align: center;
 }
 
 
+img.picted { 
+	max-width: 30vw;
+	border-radius: 7px;
+	margin-bottom: 30px;
+	box-shadow: 12px 12px 20px #494444;
 
-.picted { 
-max-width: 20vw;
+}
+
+.name {
+	font-size: 1.5em;
+}
+
+.price {
+	color: #545050;
+}
+
+.main_container { 
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin-left: auto;
+	margin-right: auto; 
+	justify-content: center;
+	min-width: 900px;
+}
+
+a {
+	text-decoration: none;
+	color: #2b2626;
+	margin: 20px 20px 20px 20px;
+	text-align: center;
+}
+
+.ourteddies {
+	text-align: center;
+	font-size: 2em;
+	color: #261624;
+    
+}
+
+.list_items {
+	flex-wrap: wrap;
+	flex-direction: column;
+	margin: auto;
+	max-width: 900px;
+	justify-content: center;
+}
+
+.items {
+	justify-content: center;
+	flex-direction: column;
+
 }
