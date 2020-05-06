@@ -33,6 +33,7 @@ listeTeddies.forEach(function(ours) {
 	document.getElementById("list_items").appendChild(bear); //ajout de li dans la class list_items(ul)
 
 
+	
 
 });
 
@@ -60,10 +61,23 @@ var picTeddy = document.getElementsByClassName("img_produit");  // recuperer elt
 		picTeddy[0].setAttribute("src",selectedTeddy.imageUrl);
 	}
 
-var descripTeddy = document.getElementById("description");  // recuperer elt qui porte la description
+var descripTeddy = document.getElementsByClassName("description");  // recuperer elt qui porte la description
 
-	if(descripTeddy.length > 0 ) {
-		descriptTeddy[0].textContent = selectedTeddy.description;
+    if(descripTeddy.length > 0) {
+        descripTeddy[0].textContent = selectedTeddy.description;
+    }
+
+
+
+    var selectColor = document.createElement("option");      				  // creation d'une balise option
+	
+	selectColor.classList.add('option_color');              				  // ajout de class option_color a la div option
+	document.getElementById('choosecolor_id').appendChild(selectColor); 	  //ajout de la balise option a la balise select
+
+selectColor.setAttribute('value',selectedTeddy.colors)	  						  // ajout d'attribut value
+var selColor = document.getElementsByClassName('option_color');
+	if (selColor.length > 0) {
+		selColor[0].textContent = selectedTeddy.colors;
 	}
 
 
