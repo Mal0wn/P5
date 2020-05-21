@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 	<head>
 		<title>Orinoco</title>
  <meta charset="utf-8">
@@ -8,58 +7,59 @@
  <link rel="stylesheet" media="screen and (max-width: 780px)" href="small_style.css" type="text/css" />
  <link rel="stylesheet" media="screen and (min-width: 781px) and (max-width:1100px)" href="tab_style.css" type="text/css" />
  <link rel="stylesheet" media="screen and (min-width: 1101px) " href="style.css" type="text/css" />
-<script src="https://kit.fontawesome.com/2e150e9e42.js" crossorigin="anonymous"></script>
+ <script src="https://kit.fontawesome.com/2e150e9e42.js" crossorigin="anonymous"></script>
 	</head>
-
 	<body>
 		<header class="nav_onorico">
-			<div class="logoonorico"><a href="index.html"><h1><i class="fas fa-shopping-cart"></i> Orinoco</h1></a> </div>
-		</header>
-
-
-
-<main class="main_container">
-<section class="produit">
-	
-	<h1 class="title_teddy">
-	</h1>
-
-	<div class="contain">
-		<div class="left">
-			<img class="img_produit"/>
-			<div class="price">
+			<div class="logoonorico">
+				<a href="index.html">
+					<img src = "images/logo_onorico.png" alt="Logo Orinoco" class="logo"/>
+				</a> 
 			</div>
-		</div> 
-		<div class="right">
-			<article>
-				<h2 class="des_title">Description
+			<div class="panier">
+				<a href ="mon_panier.html">
+					<i class="fas fa-shopping-cart">
+					</i>
+					<p class="mpn">Mon Panier
+					</p> 
+				</a>
+			</div>
+		</header>
+		<main class="main_container">
+			<section class="produit">	
+				<h2 class="title_teddy"> 
 				</h2>
-				<p class="description" id="description">
-				</p>
-			</article>
-			<form name="form_choosecolor">
-				<label class="choose"> Choisir la couleur : </label>
-				<select name="choosecolor" id="choosecolor_id">
-				</select>
-			</form>	
-		</div>
-	</div>
-</section>
+				<div class="contain">
+					<div class="left">
+						<img class="img_produit"/>
+					</div> 
+					<div class="right">
+						<article>
+							<h3 class="des_title">Description
+							</h3>
+							<p class="description" id="description">
+							</p>
+						</article>
+						<form name="form_choosecolor">
+							<label class="choose"> Choisir la couleur : 
+							</label>
+								<select name="choosecolor" id="choosecolor_id">
+								</select>
+							<label for="qte_id">Quantité :</label>
+								<input type="number" id="qte_id" name="qte" value="1" min="1" max="20">
+						</form>	
+						<div id="div_price"> </div>
+							<input type="submit" value="Ajouter au panier" name="addtocart" class="addtocart" id="addtocart_id">
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<p> © 2020 // Orinoco.com </p>
+		</footer>
 
 
-
-
-</main>
-
-
-<footer class="footer">
-	<p> © 2020 // Orinoco.com </p>
-
-</footer>
-
-
-		<script type ="text/javascript" src="malo.js"></script>
+	<script type ="text/javascript" src="malo.js"></script>
+	<script type ="text/javascript" src="basketManagement.js"></script>
 	</body>
-
-
-	</html>
+</html>

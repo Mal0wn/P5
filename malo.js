@@ -37,7 +37,7 @@ listeTeddies.forEach(function(ours) {
 
 });
 
-//initialisation données page produit
+//initialisation données page produit                          Voir Appel API!!!!!!
 
 function gotoproduit(id) {
 	let selectedTeddy; 
@@ -68,18 +68,28 @@ var descripTeddy = document.getElementsByClassName("description");  // recuperer
     }
 
 
+var select = document.getElementById("choosecolor_id");
 
-    var selectColor = document.createElement("option");      				  // creation d'une balise option
-	
-	selectColor.classList.add('option_color');              				  // ajout de class option_color a la div option
-	document.getElementById('choosecolor_id').appendChild(selectColor); 	  //ajout de la balise option a la balise select
-
-selectColor.setAttribute('value',selectedTeddy.colors)	  						  // ajout d'attribut value
-var selColor = document.getElementsByClassName('option_color');
-	if (selColor.length > 0) {
-		selColor[0].textContent = selectedTeddy.colors;
+for (let color of selectedTeddy.colors) {
+	var eltCol = document.createElement('option');
+	eltCol.setAttribute("value",color);
+	eltCol.textContent = color; 
+	if (select) {
+		select.appendChild(eltCol);
 	}
+}
 
+
+if (document.getElementById("div_price")){
+
+// recuperer elt span qui va porter le prix
+  var paraprice = document.createElement("p"); 
+  paraprice.id= "para_price_id" ;
+  paraprice.textContent = "Prix : " + selectedTeddy.price + "€";
+
+   document.getElementById("div_price").appendChild(paraprice); //ajout du p paraprice à la div div_price
+}
+    
 
 }
 

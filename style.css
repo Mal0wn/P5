@@ -24,29 +24,39 @@
 .list_items,
 .items,
 body,
-h1 {
+.panier,
+.contain,
+.left,
+.right,
+.fas.fa-shopping-cart {
 	display : flex;
 }
 
-
-
-h1 {
-	font-family: belligerent;
-	color: #261624;
-	font-size: 5em;
-	align-items: baseline;
-	margin-top: 10px;
-	margin-bottom: 10px;
+.logo {
+	width: 100%;
 }
+
+
 
 .fas.fa-shopping-cart{
 	background: -webkit-linear-gradient(0.40turn ,#915cf9, #d28040);
  				-webkit-background-clip: text;
  	 			-webkit-text-fill-color: transparent;
  	margin-right: 10px;
+ 	font-size: 2em;
+ 	justify-content: center;
+ 	width: 100%;
+ 	text-align: center;
 	
 }
 
+.panier {
+	margin-right: 50px;
+	align-items: baseline;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
 
 
 
@@ -158,4 +168,59 @@ a {
 	justify-content: center;
 	flex-direction: column;
 
+}
+
+
+.title_teddy {
+	text-align: center;
+}
+
+.contain {
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: stretch;
+
+}
+
+.img_produit {
+	border-radius: 7px;
+	margin-bottom: 30px;
+	box-shadow: 12px 12px 20px #494444;
+	max-width: 30vw;
+	margin: auto;
+
+}
+
+.left {
+	margin-right: 20px;
+}
+
+
+.right {
+	flex-direction: column;
+	max-width: 500px;
+	margin-left: 20px;
+	align-items: stretch;
+}
+
+.addtocart {
+	max-width: 300px;
+    max-height: 80px;
+    border-radius: 10px;
+    background-color: #2d2c2c;
+    color: white;
+    font-size: 1em;
+    padding: 5px 0px 5px 0px;
+    box-shadow: 12px 12px 20px #494444;
+    font-family: Capriola;
+}
+
+#qte_id , 
+#choosecolor_id {
+	border-radius: 10px;
+    background-color: #2d2c2c;
+    color: white;
+        font-family: Capriola;
+        text-align: center;
+        padding-left: 3px;
 }
