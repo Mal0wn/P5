@@ -28,14 +28,40 @@
         </div>
     </header>
     <main class="main_container_pn">
-        <section class="resum">
-            <h1>Mon Panier</h1>
+        <section class="resum" id="resum_id">
+            <h1 id="resum_cart_id">Mon Panier</h1>
+                <ul class="resum_list_cart" id="resum_list_cart">
+
+                </ul>
+                <p class="total_price" id="total_price_id"></p>
 
         </section>
-
-        <form>
-        </form>
-        <button id="clearPanier">clear</button>
+        <section class="form_custo">
+            <form>
+                <p>
+                    <label for="name">Nom :</label>
+                    <input type="text" name="name" id="name_custo"  size="30" maxlength="15"/>
+                </p>
+                <p>
+                    <label for="firstname">Prenom :</label>
+                    <input type="text" name="firstname" id="firstname_custo"  size="30" maxlength="15">
+                </p>
+                <p>
+                    <label for="mail">Mail :</label>
+                    <input type="email" name="mail" id="mail_custo"  size="30" maxlength="50">
+                </p>
+                <p>
+                    <label for="adress">Adresse :</label>
+                    <input type="textarea" name="adress" id="adress_custo"  size="50" maxlength="50">
+                </p>
+                <p>
+                    <label for="phone">Téléphone :</label>
+                    <input type="tel" name="phone" id="phone_custo" size="10" maxlength="10">
+                </p> 
+            </form>
+        </section>
+        <button type="submit" id="submitPanier">Valider</button>
+        <button id="clearPanier">Clear</button>
 
     </main>
     <footer class="footer">

@@ -224,3 +224,8 @@ a {
         text-align: center;
         padding-left: 3px;
 }
+
+
+.main_container_pn {
+	margin: 20px 10px 100px 10px;
+}

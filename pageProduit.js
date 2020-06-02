@@ -64,7 +64,7 @@ function getSelectedTeddy() {
 
     console.log(c);
 
-    //ensuite appel api, ici je triche ;-), pour recuperer le bon teddy grâce a l'id
+    //ensuite appel api, pour recuperer le bon teddy grâce a l'id
 
     ajaxGet("http://localhost:3000/api/teddies/"+ c , function (response) {
         selectedTeddy = response; 
@@ -80,7 +80,7 @@ function getSelectedTeddy() {
 
 
 
-//ici je mets le code du basket management, parce comme on a deja le bon teddy selectionné , on evite de refaire un appel a l'api pour demander encore des infos
+// parce comme on a deja le bon teddy selectionné , on evite de refaire un appel a l'api pour demander encore des infos
 console.log(localStorage);
 
 
@@ -103,10 +103,14 @@ function addToBasket() {
     var panier = JSON.parse(localStorage.getItem('panier'));
     console.log(panier);
     //on créer un objet qu'on va stocker ds le localStorage avec les infos donnés par l'utilisateur recuperer juste au dessus
+    console.log(selectedTeddy);
     var newPanier = {
-        'id': selectedTeddy[0]._id,
+        'id': selectedTeddy._id,
         'color': valueColor,
-        'quantité': inputQte
+        'quantité': inputQte, 
+        'price' : selectedTeddy.price ,
+        'pict' : selectedTeddy.imageUrl,
+        'name' : selectedTeddy.name,
     };
     // si encore rien ds le panier, le panier est vide donc null, si il est null il faut creer un tableau vide
     if (panier === null) {
