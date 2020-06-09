@@ -1,18 +1,29 @@
 // Exécute un appel AJAX GET
 // Prend en paramètres l'URL cible et la fonction callback appelée en cas de succès
 function ajaxGet(url, callback) {
-    var req = new XMLHttpRequest();
-    req.open("GET", url);
-    req.addEventListener("load", function () {
-        if (req.status >= 200 && req.status < 400) {
-            // Appelle la fonction callback en lui passant la réponse de la requête
-            callback(JSON.parse(req.responseText));
-        } else {
-            console.error(req.status + " " + req.statusText + " " + url);
-        }
-    });
-    req.addEventListener("error", function () {
-        console.error("Erreur réseau avec l'URL " + url);
-    });
-    req.send(null);
+    // Fetch 
+    fetch(url, {
+        method:"GET"
+    }).then((resp) => resp.text())         // Prend la réponse => va chercher le contenu textuel
+      .then(function(data){                // Prend le resultat de .then et send au callback
+        console.log(data);
+        callback(JSON.parse(data));        // Transformation JSON 
+
+    })
 }
+
+function ajaxPost(url, callback, data) {
+    // Fetch 
+    fetch(url, {
+        method:"POST",
+        body: JSON.stringify(data)         // Renvoi l'objet posté sous forme de string
+    }).then((resp) => resp.text())         // Prend la réponse => va chercher le contenu textuel
+      .then(function(data){                // Prend le resultat de .then et send au callback
+        console.log(data);
+        callback(JSON.parse(data));        // Transformation JSON 
+
+    })
+}
+
+
+

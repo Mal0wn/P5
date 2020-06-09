@@ -33,30 +33,35 @@
                 <ul class="resum_list_cart" id="resum_list_cart">
 
                 </ul>
-                <p class="total_price" id="total_price_id"></p>
+                <div class="total_price" id="total_price_id"></div>
 
         </section>
         <section class="form_custo">
             <form>
                 <p>
                     <label for="name">Nom :</label>
-                    <input type="text" name="name" id="name_custo"  size="30" maxlength="15"/>
+                    <input type="text" name="name" id="name_custo"  size="30" minlength="2" maxlength="30"/>
+                    <span id= "error_name"></span>
                 </p>
                 <p>
                     <label for="firstname">Prenom :</label>
-                    <input type="text" name="firstname" id="firstname_custo"  size="30" maxlength="15">
+                    <input type="text" name="firstname" id="firstname_custo"  size="30" minlength="2" maxlength="30">
+                    <span id= "error_firstname"></span>
                 </p>
                 <p>
                     <label for="mail">Mail :</label>
                     <input type="email" name="mail" id="mail_custo"  size="30" maxlength="50">
+                    <span id="error_mail"></span>
                 </p>
                 <p>
                     <label for="adress">Adresse :</label>
-                    <input type="textarea" name="adress" id="adress_custo"  size="50" maxlength="50">
+                    <input type="textarea" name="adress" id="adress_custo"  size="80" maxlength="80">
+                    <span id="error_adress"></span>
                 </p>
                 <p>
                     <label for="phone">Téléphone :</label>
-                    <input type="tel" name="phone" id="phone_custo" size="10" maxlength="10">
+                    <input type="tel" name="phone" id="phone_custo" size="10" minlength="10" maxlength="10">
+                    <span id="error_phone"></span>
                 </p> 
             </form>
         </section>
