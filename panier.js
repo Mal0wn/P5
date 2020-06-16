@@ -114,6 +114,16 @@ function validate(){
 		submit(nameCusto,firstNameCusto,mailCusto,adressCusto,phoneCusto);
 	}
 }
+// Requete Post 
+
+
+let products =[]; //init tableau contain id  product
+let basket = JSON.parse(localStorage.getItem ('panier'));
+
+basket.forEach(function(product){ // Pour chaque produits dans le panier
+	products.push(product._id); // On push l'id dans le tableau à envoyer
+}
+
 
 function submit(name , firstname, email , address , phone ){
 	let data = {
@@ -124,13 +134,7 @@ function submit(name , firstname, email , address , phone ){
 			tel : phone,
 			adressemail: email },
 		
-		product : [19684984, 96874984984]
+		products : []
 		}
 		ajaxPost("http://localhost:3000/api/teddies/order", null, data);
 }
-
-
-
-
-
-
