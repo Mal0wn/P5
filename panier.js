@@ -117,12 +117,15 @@ function validate(){
 // Requete Post 
 
 
-let products =[]; //init tableau contain id  product
-let basket = JSON.parse(localStorage.getItem ('panier'));
+let products = []; // initialisation d'un tableau qui contiendra les ID
+let basket = JSON.parse(localStorage.getItem('panier')); // Récupération du panier
+console.log(basket);
+console.log(products);
 
-basket.forEach(function(product){ // Pour chaque produits dans le panier
-	products.push(product._id); // On push l'id dans le tableau à envoyer
-}
+basket.forEach(function(product) {
+	 
+	products.push(basket._id); 
+});
 
 
 function submit(name , firstname, email , address , phone ){
@@ -136,5 +139,9 @@ function submit(name , firstname, email , address , phone ){
 		
 		products : []
 		}
-		ajaxPost("http://localhost:3000/api/teddies/order", null, data);
+		ajaxPost("http://localhost:3000/api/teddies/order", null, data)
+		
+		
+			window.location.href= "./confirm.html"; 
+		
 }
