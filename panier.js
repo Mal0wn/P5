@@ -1,7 +1,6 @@
 initPage();
 
 let addToCart = document.getElementById("clearPanier"); //recupérer le btn nettoyage panier
-
 addToCart.addEventListener("click", clearLocalStorage); // crea evnt click btn 
 
 function clearLocalStorage() {
@@ -39,8 +38,7 @@ function initPage(){
 
 		
 
-		document.getElementById("resum_list_cart").appendChild(item); //ajout de li dans la class resum_list_cart(ul)	
-
+		document.getElementById("resum_list_cart").appendChild(item); //ajout de li dans la class resum_list_cart(ul)
 
 	});
 }
@@ -137,7 +135,7 @@ function submit(name , firstname, email , address , phone ){
 			tel : phone,
 			adressemail: email },
 		
-		products : []
+		products:[basket._id]
 		}
 		ajaxPost("http://localhost:3000/api/teddies/order", null, data)
 		

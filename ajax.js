@@ -17,10 +17,10 @@ function ajaxPost(url, callback, data) {
     fetch(url, {
         method:"POST",
         body: JSON.stringify(data)         // Renvoi l'objet posté sous forme de string
-    }).then((resp) => resp.text())         // Prend la réponse => va chercher le contenu textuel
+    }).then((resp) => resp.json())         // Prend la réponse => va chercher le contenu textuel
       .then(function(data){                // Prend le resultat de .then et send au callback
         console.log(data);
-        callback(JSON.parse(data));        // Transformation JSON 
+        
 
     })
 }
