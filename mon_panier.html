@@ -5,9 +5,9 @@
     <title>Orinoco</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" media="screen and (max-width: 780px)" href="small_style.css" type="text/css" />
-    <link rel="stylesheet" media="screen and (min-width: 781px) and (max-width:1100px)" href="tab_style.css" type="text/css" />
-    <link rel="stylesheet" media="screen and (min-width: 1101px) " href="style.css" type="text/css" />
+    <link rel="stylesheet" media="screen" href="style.css" type="text/css" />
+    <link rel="stylesheet" media="screen and (min-width: 760px) and (max-width: 1024px)" href="tab_style.css" type="text/css" /> 
+    <link rel="stylesheet" media="screen and (min-width: 320px) and (max-width: 759px)" href="small_style.css" type="text/css" /> 
     <script src="https://kit.fontawesome.com/2e150e9e42.js" crossorigin="anonymous"></script>
 </head>
 
@@ -40,28 +40,28 @@
             <form>
                 <p>
                     <label for="name">Nom :</label>
-                    <input type="text" name="name" id="name_custo"  size="30" minlength="2" maxlength="30"/>
+                    <input type="text" name="name" id="name_custo"  size="30" />
                     <span id= "error_name"></span>
                 </p>
                 <p>
                     <label for="firstname">Prenom :</label>
-                    <input type="text" name="firstname" id="firstname_custo"  size="30" minlength="2" maxlength="30">
+                    <input type="text" name="firstname" id="firstname_custo"  size="30" >
                     <span id= "error_firstname"></span>
                 </p>
                 <p>
                     <label for="mail">Mail :</label>
-                    <input type="email" name="mail" id="mail_custo"  size="30" maxlength="50">
+                    <input type="email" name="mail" id="mail_custo"  size="30" >
                     <span id="error_mail"></span>
                 </p>
                 <p>
                     <label for="adress">Adresse :</label>
-                    <input type="textarea" name="adress" id="adress_custo"  size="80" maxlength="80">
+                    <input type="textarea" name="adress" id="adress_custo"  size="80" >
                     <span id="error_adress"></span>
                 </p>
                 <p>
-                    <label for="phone">Téléphone :</label>
-                    <input type="tel" name="phone" id="phone_custo" size="10" minlength="10" maxlength="10">
-                    <span id="error_phone"></span>
+                    <label for="city">Ville :</label>
+                    <input type="text" name="city" id="city_custo" size="30">
+                    <span id="error_city"></span>
                 </p> 
             </form>
         </section>

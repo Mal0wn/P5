@@ -24,9 +24,7 @@ function initPage(){
 		item.appendChild(oursPrice);
 
 		
-		if (document.getElementById("resum_list_card") !== null) { 				// voir pour separer js panier js confirm or 'si resum card === null ne pas appendchild!!!!!!!!!
-		document.getElementById("resum_list_cart").appendChild(item); //ajout de li dans la class resum_list_cart(ul)	
-		}
+	//	document.getElementById("resum_list_cart").appendChild(item);  (changer l'ID  rnvli)
 
 	});
 }
@@ -60,3 +58,6 @@ function totalPrice (basket) {
 
 	}
 }
+
+let orderId = localStorage.getItem("orderId"); // On récupère l'id de la commande enregistrée dans le localStorage
+document.getElementById("idOrder").textContent = orderId;

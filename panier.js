@@ -82,9 +82,9 @@ function validate(){
 	let firstNameCusto = document.getElementById("firstname_custo").value;
 	let mailCusto = document.getElementById("mail_custo").value;
 	let adressCusto = document.getElementById("adress_custo").value;
-	let phoneCusto = document.getElementById("phone_custo").value;
+	let cityCusto = document.getElementById("city_custo").value;
 
-	console.log(nameCusto,firstNameCusto,mailCusto,adressCusto,phoneCusto);
+	console.log(nameCusto,firstNameCusto,mailCusto,adressCusto,cityCusto);
 
 	let testSubmit = true;
 
@@ -99,17 +99,17 @@ function validate(){
 		
 	}
 
-	var regexPhone = new RegExp("^0[1-9]([-. ]?[0-9]{2}){4}$");
+	/*var regexPhone = new RegExp("^0[1-9]([-. ]?[0-9]{2}){4}$");
 	if (!regexPhone.test(phoneCusto)){
 		validitePhone = "Numéro Invalide";
 		document.getElementById("error_phone").textContent= validitePhone;
 		testSubmit = false;
 		
-	}
+	}*/
 
 	if (testSubmit === true) {
 		//POST 
-		submit(nameCusto,firstNameCusto,mailCusto,adressCusto,phoneCusto);
+		submit(nameCusto,firstNameCusto,mailCusto,adressCusto,cityCusto);
 	}
 }
 // Requete Post 
@@ -120,26 +120,37 @@ let basket = JSON.parse(localStorage.getItem('panier')); // Récupération du pa
 console.log(basket);
 console.log(products);
 
-basket.forEach(function(product) {
-	 
-	products.push(basket._id); 
-});
 
 
-function submit(name , firstname, email , address , phone ){
+
+// on remplit le tableau products avec les ids récupérés du localStorage du panier
+for(var i=0; i<basket.length; i++){
+	products.push(basket[i].id);
+}
+
+for(var i=0; i<products.length; i++){
+	console.log(products[i]);
+}
+
+function submit(name , firstname, email , address , city ){
 	let data = {
-		contact : {
-			prenom: firstname , 
-			nom: name, 
-			adresse: address, 
-			tel : phone,
-			adressemail: email },
+		"contact" : {                            // changer le nom des clefs
+			"firstName": firstname , 
+			"lastName": name, 
+			"address": address, 
+			"city" : city,  					
+			"email": email },
 		
-		products:[basket._id]
+		"products": products
 		}
+		if(
 		ajaxPost("http://localhost:3000/api/teddies/order", null, data)
-		
-		
+		){
 			window.location.href= "./confirm.html"; 
-		
+		}else{
+			console.log("erreur");
+			console.log("Debug  contact:" +data.contact.tel);
+			console.log("Debug  products:"+data.products[0]);
+			console.log(data);
+		}
 }

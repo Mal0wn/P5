@@ -1,7 +1,7 @@
 var listeTeddies = [];
 ajaxGet("http://localhost:3000/api/teddies", function (response) {
 	listeTeddies = response; 
-	console.log(listeTeddies); 
+	 
 	listeTeddies.forEach(function(ours) {
 		var bear = document.createElement("li");       					// Création d'un élément li
 		var aBear = document.createElement("a");      					 // creation d'un element a 

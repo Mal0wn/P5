@@ -1,0 +1,10 @@
+body {
+	max-width: 720px;
+    min-width: 360px;
+}
+
+
+img.picted { 
+    
+    max-width: 100vw;
+}
