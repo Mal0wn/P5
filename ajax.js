@@ -12,7 +12,7 @@ function ajaxGet(url, callback) {
     })
 }
 
-function ajaxPost(url, callback, data) {
+function ajaxPost(url, data) {
     // Fetch 
     fetch(url, {
         method:"POST",
@@ -23,7 +23,8 @@ function ajaxPost(url, callback, data) {
     }).then((resp) => resp.json())         // Prend la réponse => va chercher le contenu textuel
       .then(function(data){                // Prend le resultat de .then et send au callback
         console.log(data);
-        
+        let donnees = JSON.stringify(data);
+        window.localStorage.setItem('datacmd', donnees);
 
     })
 }

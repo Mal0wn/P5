@@ -31,10 +31,16 @@ function initPage(){
 		let oursPrice = document.createElement("div"); // creation de la div pour le prix
 		oursPrice.classList.add('price');              // ajout de la class a la div prix
 		oursPrice.textContent = eltSelected.price +" €";			   // donner le texte "price" du tableau a oursPrice
+		let oursQt = document.createElement("div");    // crea div for Quantité
+		oursQt.classList.add("qte");                   // ajout de class 
+		oursQt.textContent = "Quantité: " + eltSelected.quantité; 
+
+
 
 		item.appendChild(picBear);                     //ajout des 3 elt créés dans le a 
 		item.appendChild(oursName);
 		item.appendChild(oursPrice);
+		item.appendChild(oursQt);
 
 		
 
@@ -74,8 +80,24 @@ function totalPrice (basket) {
 }
 
 
-let submitPanier = document.getElementById("submitPanier");
-submitPanier.addEventListener("click", validate); // crea evnt click validation
+function submit(name , firstname, email , address , city ){
+	let data = {
+		"contact" : {                            // changer le nom des clefs
+			"firstName": firstname , 
+			"lastName": name, 
+			"address": address, 
+			"city" : city,  					
+			"email": email },
+		
+		"products": products
+		};
+		
+		ajaxPost("http://localhost:3000/api/teddies/order", data);
+		setTimeout(function(){window.location.href= "confirm.html";}, 3000);
+			 
+		
+}
+
 
 function validate(){
 	let nameCusto = document.getElementById("name_custo").value;
@@ -99,19 +121,17 @@ function validate(){
 		
 	}
 
-	/*var regexPhone = new RegExp("^0[1-9]([-. ]?[0-9]{2}){4}$");
-	if (!regexPhone.test(phoneCusto)){
-		validitePhone = "Numéro Invalide";
-		document.getElementById("error_phone").textContent= validitePhone;
-		testSubmit = false;
-		
-	}*/
+	
 
 	if (testSubmit === true) {
 		//POST 
 		submit(nameCusto,firstNameCusto,mailCusto,adressCusto,cityCusto);
 	}
 }
+
+let submitPanier = document.getElementById("submitPanier");
+submitPanier.addEventListener("click", validate); // crea evnt click validation
+
 // Requete Post 
 
 
@@ -132,25 +152,8 @@ for(var i=0; i<products.length; i++){
 	console.log(products[i]);
 }
 
-function submit(name , firstname, email , address , city ){
-	let data = {
-		"contact" : {                            // changer le nom des clefs
-			"firstName": firstname , 
-			"lastName": name, 
-			"address": address, 
-			"city" : city,  					
-			"email": email },
-		
-		"products": products
-		}
-		if(
-		ajaxPost("http://localhost:3000/api/teddies/order", null, data)
-		){
-			window.location.href= "./confirm.html"; 
-		}else{
-			console.log("erreur");
-			console.log("Debug  contact:" +data.contact.tel);
-			console.log("Debug  products:"+data.products[0]);
-			console.log(data);
-		}
-}
+
+
+
+
+

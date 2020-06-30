@@ -59,5 +59,60 @@ function totalPrice (basket) {
 	}
 }
 
-let orderId = localStorage.getItem("orderId"); // On récupère l'id de la commande enregistrée dans le localStorage
-document.getElementById("idOrder").textContent = orderId;
+// let orderId = localStorage.getItem("orderId"); // On récupère l'id de la commande enregistrée dans le localStorage
+// document.getElementById("idOrder").textContent = orderId;
+
+
+let dataStorage = window.localStorage.getItem('datacmd');
+let dataJson = JSON.parse(dataStorage);
+console.log('orderID: ' + dataJson.orderId);
+
+let orderIdText = document.querySelector('#idOrder');
+orderIdText.innerHTML = dataJson.orderId;
+
+console.log(dataJson.products[0].name);
+
+for( let i = 0; i < dataJson.products.length ; i ++) {
+	console.log(dataJson.products[i].name);
+}
+
+
+function afficheResum(){
+	
+
+	if (dataJson.products !== null) {
+		dataJson.products.forEach(function(eltSelected) {
+		let item = document.createElement("li");       // Création d'un élément li
+		console.log("bla" + eltSelected.name);
+		
+			
+		let picBear = document.createElement("img");   // creation de l'elt img
+		picBear.classList.add('pictedresum');               //ajout de class a img
+		picBear.setAttribute('src',eltSelected.imageUrl);     // ajout d'attribut src a img & son emplacement
+		let oursName = document.createElement("div");  // creation de la div pour le name
+		oursName.classList.add('nameresum');                // ajout de class name a la div
+		oursName.textContent = eltSelected.name;			   // Donner le texte "name" du tableau a oursName
+		let oursPrice = document.createElement("div"); // creation de la div pour le prix
+		oursPrice.classList.add('priceresum');              // ajout de la class a la div prix
+		oursPrice.textContent = eltSelected.price +" €";			   // donner le texte "price" du tableau a oursPrice
+		/*let oursQt = document.createElement("div");    // crea div for Quantité
+		oursQt.classList.add("qteresum");                   // ajout de class 
+		oursQt.textContent = "Quantité: " + eltSelected.quantité; 
+		*/
+
+
+
+		item.appendChild(picBear);                     //ajout des 3 elt créés dans le a 
+		item.appendChild(oursName);
+		item.appendChild(oursPrice);
+		//item.appendChild(oursQt);
+
+		
+
+		document.getElementById("resum_list_order").appendChild(item); //ajout de li dans la class resum_list_cart(ul)
+
+	});
+}
+}
+
+afficheResum();
