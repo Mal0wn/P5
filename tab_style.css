@@ -1,10 +1,51 @@
 body {
 	max-width: 1100px;
-    min-width: 720px;
+    min-width: 721px;
+    margin: auto;
 }
 
 img.picted { 
     
-    max-width: 50vw;
+    width: 90%;;
 }
 
+.title_conf {
+    font-size: 2.3em;
+}
+
+.numconf {
+    font-size: 1.5em;
+}
+
+.contain {
+    flex-direction: column;
+    width: 100%;
+    
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    font-size: 1.5em;
+}
+
+.right {
+    margin: auto;
+    align-items: center;
+}
+
+.main_container {
+    margin-bottom: 70px;
+}
+
+.form_custo, .button {
+    width: 80%;
+    min-width: 300px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.main_container_pn {
+    font-size: 1.5em;
+}
+.panier {
+    font-size: 1.3em;
+}

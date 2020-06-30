@@ -46,7 +46,7 @@ function totalPrice (basket) {
 	console.log(resultPrice);
 	if (resultPrice !== 0){
 	var price = document.createElement("p");                                     // Création d'un élément p
-	price.id = "price_total";                                                    // Définition de son identifiant
+	price.id = "price_total_resum";                                                    // Définition de son identifiant
 	price.appendChild(document.createTextNode("Total: " +  resultPrice + "€.")); // Définition de son contenu textuel
 	document.getElementById("total_price_id").appendChild(price);                   // Insertion du nouvel élément
 	}
@@ -111,8 +111,15 @@ function afficheResum(){
 
 		document.getElementById("resum_list_order").appendChild(item); //ajout de li dans la class resum_list_cart(ul)
 
+
 	});
 }
 }
 
 afficheResum();
+function clearLocalStorage() {
+	localStorage.clear();
+	console.log(localStorage);
+}
+
+//clearLocalStorage();
