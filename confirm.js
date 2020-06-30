@@ -122,4 +122,4 @@ function clearLocalStorage() {
 	console.log(localStorage);
 }
 
-//clearLocalStorage();
+clearLocalStorage();
