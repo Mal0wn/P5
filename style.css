@@ -259,6 +259,10 @@ a {
 
 .pictedresum {
 	width: 100px;
+	border-radius: 7px;
+	margin-bottom: 30px;
+	box-shadow: 12px 12px 20px #494444;
+
 }
 
 .resum_list_order {

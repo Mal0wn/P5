@@ -59,10 +59,6 @@ function totalPrice (basket) {
 	}
 }
 
-// let orderId = localStorage.getItem("orderId"); // On récupère l'id de la commande enregistrée dans le localStorage
-// document.getElementById("idOrder").textContent = orderId;
-
-
 let dataStorage = window.localStorage.getItem('datacmd');
 let dataJson = JSON.parse(dataStorage);
 console.log('orderID: ' + dataJson.orderId);

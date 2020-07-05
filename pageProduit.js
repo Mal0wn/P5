@@ -5,13 +5,14 @@ function initPage () {
     var nameTeddy = document.getElementsByClassName("title_teddy"); //recupérer elt qui porte name teddy
 
     if (nameTeddy.length > 0) { // elimine code err if not good html
-        nameTeddy[0].textContent = selectedTeddy.name; // affecte nom name teddy a l'elt
+        nameTeddy[0].innerHTML = selectedTeddy.name; // affecte nom name teddy a l'elt
     }
 
     var picTeddy = document.getElementsByClassName("img_produit"); // recuperer elt qui porte l'img 
 
     if (picTeddy.length > 0) {
-        picTeddy[0].setAttribute("src", selectedTeddy.imageUrl);
+        //picTeddy[0].setAttribute("src", selectedTeddy.imageUrl);
+        picTeddy[0].src = selectedTeddy.imageUrl;
     }
 
     var descripTeddy = document.getElementsByClassName("description"); // recuperer elt qui porte la description
@@ -21,7 +22,7 @@ function initPage () {
     }
 
 
-    var select = document.getElementById("choosecolor_id");
+    var select = document.getElementById("choosecolor_id");             // pour chaque teddy selectionné il genere les couleurs du teddy selectionné
 
     for (let color of selectedTeddy.colors) {
         var eltCol = document.createElement('option');
