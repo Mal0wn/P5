@@ -40,6 +40,12 @@ body,
 
 
 
+.count {
+	background-color: aliceblue;
+	border-radius: 50% ;
+	padding: 5px ;
+}
+
 .fas.fa-shopping-cart{
 	background: -webkit-linear-gradient(0.40turn ,#915cf9, #d28040);
  				-webkit-background-clip: text;

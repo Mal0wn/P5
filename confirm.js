@@ -1,36 +1,4 @@
-function initPage(){
-	let panier = JSON.parse(localStorage.getItem ('panier')); 
-	totalPrice(panier);
-	console.log(panier); 
 
-	if (panier !== null) {
-		panier.forEach(function(eltSelected) {
-		let item = document.createElement("li");       // Création d'un élément li
-		console.log(eltSelected);
-		
-			
-		let picBear = document.createElement("img");   // creation de l'elt img
-		picBear.classList.add('picted');               //ajout de class a img
-		picBear.setAttribute('src',eltSelected.pict);     // ajout d'attribut src a img & son emplacement
-		let oursName = document.createElement("div");  // creation de la div pour le name
-		oursName.classList.add('name');                // ajout de class name a la div
-		oursName.textContent = eltSelected.name;			   // Donner le texte "name" du tableau a oursName
-		let oursPrice = document.createElement("div"); // creation de la div pour le prix
-		oursPrice.classList.add('price');              // ajout de la class a la div prix
-		oursPrice.textContent = eltSelected.price +" €";			   // donner le texte "price" du tableau a oursPrice
-
-		item.appendChild(picBear);                     //ajout des 3 elt créés dans le a 
-		item.appendChild(oursName);
-		item.appendChild(oursPrice);
-
-		
-	//	document.getElementById("resum_list_cart").appendChild(item);  (changer l'ID  rnvli)
-
-	});
-}
-}
-
-initPage();
 
 function totalPrice (basket) {
     let resultPrice = 0; 
@@ -61,16 +29,14 @@ function totalPrice (basket) {
 
 let dataStorage = window.localStorage.getItem('datacmd');
 let dataJson = JSON.parse(dataStorage);
-console.log('orderID: ' + dataJson.orderId);
+
+let dataPanier = window.localStorage.getItem('panier');
+let dataJsonPanier = JSON.parse(dataPanier);
 
 let orderIdText = document.querySelector('#idOrder');
 orderIdText.innerHTML = dataJson.orderId;
 
-console.log(dataJson.products[0].name);
 
-for( let i = 0; i < dataJson.products.length ; i ++) {
-	console.log(dataJson.products[i].name);
-}
 
 
 function afficheResum(){
@@ -91,28 +57,82 @@ function afficheResum(){
 		let oursPrice = document.createElement("div"); // creation de la div pour le prix
 		oursPrice.classList.add('priceresum');              // ajout de la class a la div prix
 		oursPrice.textContent = eltSelected.price +" €";			   // donner le texte "price" du tableau a oursPrice
-		/*let oursQt = document.createElement("div");    // crea div for Quantité
+		let oursQt = document.createElement("div");    // crea div for Quantité
 		oursQt.classList.add("qteresum");                   // ajout de class 
-		oursQt.textContent = "Quantité: " + eltSelected.quantité; 
-		*/
+		 
+		let quantite;
+
+			//Comparer les ID du Panier avec les ID du tableau de produits pour récuperer la Qté vu qu'elle ne s'affiche pas dans le tableau de produit..... 
+		  
+		for(let i = 0; i < dataJsonPanier.length; i++){
+			if(dataJsonPanier[i].id == eltSelected._id){
+			  quantite = dataJsonPanier[i].quantité;
+			  console.log("cette fkin quantite " + quantite);
+			}
+		}
+
+			oursQt.textContent = "Quantité: " + quantite;
 
 
 
 		item.appendChild(picBear);                     //ajout des 3 elt créés dans le a 
 		item.appendChild(oursName);
 		item.appendChild(oursPrice);
-		//item.appendChild(oursQt);
+		item.appendChild(oursQt);
 
 		
 
 		document.getElementById("resum_list_order").appendChild(item); //ajout de li dans la class resum_list_cart(ul)
 
-
+			
 	});
 }
 }
 
 afficheResum();
+
+
+function initPage(){
+	let panier = JSON.parse(localStorage.getItem('panier')); 
+	totalPrice(panier);
+	//console.log(panier); 
+
+	if(localStorage.getItem("panier")) {
+		panier.forEach(function(eltSelected) {
+		let item = document.createElement("li");       // Création d'un élément li
+		console.log("panier eleme" + eltSelected);
+		alert("ok");
+			
+		let picBear = document.createElement("img");   // creation de l'elt img
+		picBear.classList.add('picted');               //ajout de class a img
+		picBear.setAttribute('src',eltSelected.pict);     // ajout d'attribut src a img & son emplacement
+		let oursName = document.createElement("div");  // creation de la div pour le name
+		oursName.classList.add('name');                // ajout de class name a la div
+		oursName.textContent = eltSelected.name;			   // Donner le texte "name" du tableau a oursName
+		let oursPrice = document.createElement("div"); // creation de la div pour le prix
+		oursPrice.classList.add('price');              // ajout de la class a la div prix
+		oursPrice.textContent = eltSelected.price +" €";			   // donner le texte "price" du tableau a oursPrice
+		let oursQt = document.createElement("div");
+		oursQt.classList.add('price');
+		oursQt.textContent = eltSelected.quantité;
+
+
+		item.appendChild(picBear);                     //ajout des 3 elt créés dans le a 
+		item.appendChild(oursName);
+		item.appendChild(oursPrice);
+		item.appendChild(oursQt);              
+		
+	//	document.getElementById("resum_list_cart").appendChild(item);  (changer l'ID  rnvli)
+
+	});
+}
+}
+
+initPage();
+
+
+
+
 function clearLocalStorage() {
 	localStorage.clear();
 	console.log(localStorage);

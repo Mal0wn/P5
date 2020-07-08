@@ -9,6 +9,7 @@ function clearLocalStorage() {
 	document.getElementById("resum_list_cart").innerHTML=""; // vide contenu liste
 	document.getElementById("total_price_id").innerHTML=""; // vide total price
 	initPage();
+	window.location.href = "index.html";
 }
 
 function initPage(){

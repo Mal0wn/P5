@@ -115,6 +115,8 @@ function addToBasket() {
 
     console.log(localStorage);
 
+    window.location.href = "index.html" ; 
+
 }
 
 
