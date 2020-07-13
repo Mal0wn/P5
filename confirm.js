@@ -38,27 +38,27 @@ orderIdText.innerHTML = dataJson.orderId;
 
 
 
-
+// Fonction qui affiche le resumé de la commande. 
 function afficheResum(){
 	
 
 	if (dataJson.products !== null) {
 		dataJson.products.forEach(function(eltSelected) {
-		let item = document.createElement("li");       // Création d'un élément li
+		let item = document.createElement("li");                   // Création d'un élément li
 		console.log("bla" + eltSelected.name);
 		
 			
-		let picBear = document.createElement("img");   // creation de l'elt img
-		picBear.classList.add('pictedresum');               //ajout de class a img
-		picBear.setAttribute('src',eltSelected.imageUrl);     // ajout d'attribut src a img & son emplacement
-		let oursName = document.createElement("div");  // creation de la div pour le name
-		oursName.classList.add('nameresum');                // ajout de class name a la div
-		oursName.textContent = eltSelected.name;			   // Donner le texte "name" du tableau a oursName
-		let oursPrice = document.createElement("div"); // creation de la div pour le prix
-		oursPrice.classList.add('priceresum');              // ajout de la class a la div prix
-		oursPrice.textContent = eltSelected.price +" €";			   // donner le texte "price" du tableau a oursPrice
-		let oursQt = document.createElement("div");    // crea div for Quantité
-		oursQt.classList.add("qteresum");                   // ajout de class 
+		let picBear = document.createElement("img");               // creation de l'elt img
+		picBear.classList.add('pictedresum');                      //ajout de class a img
+		picBear.setAttribute('src',eltSelected.imageUrl);          // ajout d'attribut src a img & son emplacement
+		let oursName = document.createElement("div");              // creation de la div pour le name
+		oursName.classList.add('nameresum');                       // ajout de class name a la div
+		oursName.textContent = eltSelected.name;			       // Donner le texte "name" du tableau a oursName
+		let oursPrice = document.createElement("div");             // creation de la div pour le prix
+		oursPrice.classList.add('priceresum');                     // ajout de la class a la div prix
+		oursPrice.textContent = eltSelected.price +" €";		   // donner le texte "price" du tableau a oursPrice
+		let oursQt = document.createElement("div");                // crea div for Quantité
+		oursQt.classList.add("qteresum");                          // ajout de class 
 		 
 		let quantite;
 
@@ -75,14 +75,14 @@ function afficheResum(){
 
 
 
-		item.appendChild(picBear);                     //ajout des 3 elt créés dans le a 
+		item.appendChild(picBear);                     
 		item.appendChild(oursName);
 		item.appendChild(oursPrice);
 		item.appendChild(oursQt);
 
 		
 
-		document.getElementById("resum_list_order").appendChild(item); //ajout de li dans la class resum_list_cart(ul)
+		document.getElementById("resum_list_order").appendChild(item); 
 
 			
 	});
@@ -99,39 +99,33 @@ function initPage(){
 
 	if(localStorage.getItem("panier")) {
 		panier.forEach(function(eltSelected) {
-		let item = document.createElement("li");       // Création d'un élément li
+		let item = document.createElement("li");          // Création d'un élément li
 		console.log("panier eleme" + eltSelected);
 		alert("ok");
 			
-		let picBear = document.createElement("img");   // creation de l'elt img
-		picBear.classList.add('picted');               //ajout de class a img
+		let picBear = document.createElement("img");      // creation de l'elt img
+		picBear.classList.add('picted');                  //ajout de class a img
 		picBear.setAttribute('src',eltSelected.pict);     // ajout d'attribut src a img & son emplacement
-		let oursName = document.createElement("div");  // creation de la div pour le name
-		oursName.classList.add('name');                // ajout de class name a la div
-		oursName.textContent = eltSelected.name;			   // Donner le texte "name" du tableau a oursName
-		let oursPrice = document.createElement("div"); // creation de la div pour le prix
-		oursPrice.classList.add('price');              // ajout de la class a la div prix
-		oursPrice.textContent = eltSelected.price +" €";			   // donner le texte "price" du tableau a oursPrice
+		let oursName = document.createElement("div");     // creation de la div pour le name
+		oursName.classList.add('name');                   // ajout de class name a la div
+		oursName.textContent = eltSelected.name;	      // Donner le texte "name" du tableau a oursName
+		let oursPrice = document.createElement("div");    // creation de la div pour le prix
+		oursPrice.classList.add('price');                 // ajout de la class a la div prix
+		oursPrice.textContent = eltSelected.price +" €";  // donner le texte "price" du tableau a oursPrice
 		let oursQt = document.createElement("div");
 		oursQt.classList.add('price');
 		oursQt.textContent = eltSelected.quantité;
 
 
-		item.appendChild(picBear);                     //ajout des 3 elt créés dans le a 
+		item.appendChild(picBear);                    
 		item.appendChild(oursName);
 		item.appendChild(oursPrice);
 		item.appendChild(oursQt);              
-		
-	//	document.getElementById("resum_list_cart").appendChild(item);  (changer l'ID  rnvli)
-
 	});
 }
 }
 
 initPage();
-
-
-
 
 function clearLocalStorage() {
 	localStorage.clear();

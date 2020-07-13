@@ -2,16 +2,16 @@ let selectedTeddy = getSelectedTeddy();
 
 function initPage () {
     console.log(selectedTeddy);
-    var nameTeddy = document.getElementsByClassName("title_teddy"); //recupérer elt qui porte name teddy
+    var nameTeddy = document.getElementsByClassName("title_teddy");    //recupérer elt qui porte name teddy
 
-    if (nameTeddy.length > 0) { // elimine code err if not good html
-        nameTeddy[0].innerHTML = selectedTeddy.name; // affecte nom name teddy a l'elt
+    if (nameTeddy.length > 0) {                                        // elimine code err if not good html
+        nameTeddy[0].innerHTML = selectedTeddy.name;                   // affecte nom name teddy a l'elt
     }
 
-    var picTeddy = document.getElementsByClassName("img_produit"); // recuperer elt qui porte l'img 
+    var picTeddy = document.getElementsByClassName("img_produit");     // recuperer elt qui porte l'img 
 
     if (picTeddy.length > 0) {
-        //picTeddy[0].setAttribute("src", selectedTeddy.imageUrl);
+       
         picTeddy[0].src = selectedTeddy.imageUrl;
     }
 
@@ -41,7 +41,7 @@ function initPage () {
         paraprice.id = "para_price_id";
         paraprice.textContent = "Prix : " + selectedTeddy.price + "€";
 
-        document.getElementById("div_price").appendChild(paraprice); //ajout du p paraprice à la div div_price
+        document.getElementById("div_price").appendChild(paraprice);    //ajout du p paraprice à la div div_price
     }
 }
 
@@ -75,9 +75,9 @@ function getSelectedTeddy() {
 console.log(localStorage);
 
 
-let addToCart = document.getElementById("addtocart_id"); //recupérer le btn input addtocart
+let addToCart = document.getElementById("addtocart_id");              //recupérer le btn input addtocart
 
-addToCart.addEventListener("click", addToBasket); // crea evnt click btn 
+addToCart.addEventListener("click", addToBasket);                     // crea evnt click btn 
 
 function addToBasket() {
 
