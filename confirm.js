@@ -9,9 +9,9 @@ function totalPrice (basket) {
     for (let item of basket) {
 
       resultPrice += item.price * item.quantité;
-      console.log(resultPrice);
+      
 	}
-	console.log(resultPrice);
+	
 	if (resultPrice !== 0){
 	var price = document.createElement("p");                                     // Création d'un élément p
 	price.id = "price_total_resum";                                                    // Définition de son identifiant
@@ -45,7 +45,7 @@ function afficheResum(){
 	if (dataJson.products !== null) {
 		dataJson.products.forEach(function(eltSelected) {
 		let item = document.createElement("li");                   // Création d'un élément li
-		console.log("bla" + eltSelected.name);
+		
 		
 			
 		let picBear = document.createElement("img");               // creation de l'elt img
@@ -67,7 +67,7 @@ function afficheResum(){
 		for(let i = 0; i < dataJsonPanier.length; i++){
 			if(dataJsonPanier[i].id == eltSelected._id){
 			  quantite = dataJsonPanier[i].quantité;
-			  console.log("cette fkin quantite " + quantite);
+			  
 			}
 		}
 
@@ -95,13 +95,11 @@ afficheResum();
 function initPage(){
 	let panier = JSON.parse(localStorage.getItem('panier')); 
 	totalPrice(panier);
-	//console.log(panier); 
+	
 
 	if(localStorage.getItem("panier")) {
 		panier.forEach(function(eltSelected) {
 		let item = document.createElement("li");          // Création d'un élément li
-		console.log("panier eleme" + eltSelected);
-		alert("ok");
 			
 		let picBear = document.createElement("img");      // creation de l'elt img
 		picBear.classList.add('picted');                  //ajout de class a img
@@ -129,7 +127,7 @@ initPage();
 
 function clearLocalStorage() {
 	localStorage.clear();
-	console.log(localStorage);
+	
 }
 
 clearLocalStorage();

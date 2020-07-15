@@ -1,7 +1,7 @@
 let selectedTeddy = getSelectedTeddy();
 
 function initPage () {
-    console.log(selectedTeddy);
+    
     var nameTeddy = document.getElementsByClassName("title_teddy");    //recupérer elt qui porte name teddy
 
     if (nameTeddy.length > 0) {                                        // elimine code err if not good html
@@ -48,18 +48,16 @@ function initPage () {
 function getSelectedTeddy() {
     // recup l'url de la page
     var url_string = window.location.search;
-    console.log(url_string);
+    
 
     //ici on remplace ds la chaine de caractere '?id=' par rien du tout ''
     var c = url_string.replace('?id=', '');
-
-    console.log(c);
 
     //ensuite appel api, pour recuperer le bon teddy grâce a l'id
 
     ajaxGet("http://localhost:3000/api/teddies/"+ c , function (response) {
         selectedTeddy = response; 
-        console.log(selectedTeddy);
+        
 
         // init page
 
@@ -72,7 +70,7 @@ function getSelectedTeddy() {
 
 
 // parce comme on a deja le bon teddy selectionné , on evite de refaire un appel a l'api pour demander encore des infos
-console.log(localStorage);
+
 
 
 let addToCart = document.getElementById("addtocart_id");              //recupérer le btn input addtocart
@@ -85,16 +83,12 @@ function addToBasket() {
     let valueColor = selectColor[selectColor.selectedIndex].value;
     let inputQte = document.getElementById("qte_id").value;
 
-    console.log(valueColor);
-    console.log(inputQte);
-    console.log(document.getElementById("qte_id"));
-    console.log(document.getElementById("choosecolor_id"))
-
+    
     //Json parse pour pouvoir plus facilement travailler avec ce qu'on reçoit du localStorage
     var panier = JSON.parse(localStorage.getItem('panier'));
-    console.log(panier);
+    
     //on créer un objet qu'on va stocker ds le localStorage avec les infos donnés par l'utilisateur recuperer juste au dessus
-    console.log(selectedTeddy);
+    
     var newPanier = {
         'id': selectedTeddy._id,
         'color': valueColor,
@@ -112,9 +106,6 @@ function addToBasket() {
 
     // on écrase l'ancienne valeur du panier, mais comme on l'a recupérer avt et qu'avec push on ajoute qqch sans ecraser les valeurs deja presente, on ne perds pas d'info
     localStorage.setItem('panier', JSON.stringify(panier));
-
-    console.log(localStorage);
-
     window.location.href = "index.html" ; 
 
 }

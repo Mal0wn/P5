@@ -15,12 +15,12 @@ function clearLocalStorage() {
 function initPage(){
 	let panier = JSON.parse(localStorage.getItem ('panier')); 
 	totalPrice(panier);
-	console.log(panier); 
+	
 
 	if (panier !== null) {
 		panier.forEach(function(eltSelected) {
 		let item = document.createElement("li");       // Création d'un élément li
-		console.log(eltSelected);
+		
 		
 			
 		let picBear = document.createElement("img");   // creation de l'elt img
@@ -60,11 +60,9 @@ function totalPrice (basket) {
     for (let item of basket) {
 
       resultPrice += item.price * item.quantité;
-      console.log(resultPrice);
+      
 	}
 	
-
-	console.log(resultPrice);
 	if (resultPrice !== 0){
 	var price = document.createElement("p");                                     // Création d'un élément p
 	price.id = "price_total";                                                    // Définition de son identifiant
@@ -107,8 +105,6 @@ function validate(){
 	let adressCusto = document.getElementById("adress_custo").value;
 	let cityCusto = document.getElementById("city_custo").value;
 
-	console.log(nameCusto,firstNameCusto,mailCusto,adressCusto,cityCusto);
-
 	let testSubmit = true;
 
  	var regexCourriel = /.+@.+\..+/;
@@ -138,11 +134,6 @@ submitPanier.addEventListener("click", validate); // crea evnt click validation
 
 let products = []; // initialisation d'un tableau qui contiendra les ID
 let basket = JSON.parse(localStorage.getItem('panier')); // Récupération du panier
-console.log(basket);
-console.log(products);
-
-
-
 
 // on remplit le tableau products avec les ids récupérés du localStorage du panier
 for(var i=0; i<basket.length; i++){
@@ -150,7 +141,7 @@ for(var i=0; i<basket.length; i++){
 }
 
 for(var i=0; i<products.length; i++){
-	console.log(products[i]);
+	
 }
 
 
