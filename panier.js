@@ -64,7 +64,7 @@ function totalPrice (basket) {
 	}
 	
 	if (resultPrice !== 0){
-	var price = document.createElement("p");                                     // Création d'un élément p
+	let price = document.createElement("p");                                     // Création d'un élément p
 	price.id = "price_total";                                                    // Définition de son identifiant
 	price.appendChild(document.createTextNode("Total: " +  resultPrice + "€.")); // Définition de son contenu textuel
 	document.getElementById("total_price_id").appendChild(price);                   // Insertion du nouvel élément
@@ -107,8 +107,8 @@ function validate(){
 
 	let testSubmit = true;
 
- 	var regexCourriel = /.+@.+\..+/;
-    var validiteCourriel = "";
+ 	let regexCourriel = /.+@.+\..+/;
+    let validiteCourriel = "";
     if (!regexCourriel.test(mailCusto)) {
 		validiteCourriel = "Adresse invalide";
 		document.getElementById("error_mail").textContent = validiteCourriel;
@@ -136,11 +136,11 @@ let products = []; // initialisation d'un tableau qui contiendra les ID
 let basket = JSON.parse(localStorage.getItem('panier')); // Récupération du panier
 
 // on remplit le tableau products avec les ids récupérés du localStorage du panier
-for(var i=0; i<basket.length; i++){
+for(let i=0; i<basket.length; i++){
 	products.push(basket[i].id);
 }
 
-for(var i=0; i<products.length; i++){
+for(let i=0; i<products.length; i++){
 	
 }
 

@@ -13,13 +13,13 @@ function totalPrice (basket) {
 	}
 	
 	if (resultPrice !== 0){
-	var price = document.createElement("p");                                     // Création d'un élément p
+	let price = document.createElement("p");                                     // Création d'un élément p
 	price.id = "price_total_resum";                                                    // Définition de son identifiant
 	price.appendChild(document.createTextNode("Total: " +  resultPrice + "€.")); // Définition de son contenu textuel
 	document.getElementById("total_price_id").appendChild(price);                   // Insertion du nouvel élément
 	}
     	else {
-			var noprice = document.createElement("p");
+			let noprice = document.createElement("p");
 			noprice.id = "noprice_id";
 			noprice.appendChild(document.createTextNode("Votre panier est vide."));
 			document.getElementById("total_price_id").appendChild(noprice);
