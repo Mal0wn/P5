@@ -54,16 +54,20 @@ function getSelectedTeddy() {
     let c = url_string.replace('?id=', '');
 
     //ensuite appel api, pour recuperer le bon teddy grâce a l'id
+   const promiseTeddy = fetch ("http://localhost:3000/api/teddies/"+ c );
+   promiseTeddy.then( response => {
 
-    ajaxGet("http://localhost:3000/api/teddies/"+ c , function (response) {
-        selectedTeddy = response; 
+    
+    return response.json();
         
+   }
+       
+   ).then(resp => {
+       selectedTeddy = resp ; 
 
-        // init page
-
-        initPage ();
-        }
-    )
+       initPage();
+   });
+    
 }
 
 
