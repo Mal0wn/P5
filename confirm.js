@@ -45,9 +45,6 @@ function afficheResum(){
 	if (dataJson.products !== null) {
 		dataJson.products.forEach(function(eltSelected) {
 		let item = document.createElement("li");                   // Création d'un élément li
-		
-		
-			
 		let picBear = document.createElement("img");               // creation de l'elt img
 		picBear.classList.add('pictedresum');                      //ajout de class a img
 		picBear.setAttribute('src',eltSelected.imageUrl);          // ajout d'attribut src a img & son emplacement

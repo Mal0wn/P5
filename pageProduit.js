@@ -56,25 +56,12 @@ function getSelectedTeddy() {
     //ensuite appel api, pour recuperer le bon teddy grâce a l'id
    const promiseTeddy = fetch ("http://localhost:3000/api/teddies/"+ c );
    promiseTeddy.then( response => {
-
-    
-    return response.json();
-        
-   }
-       
-   ).then(resp => {
+        return response.json();
+   }).then(resp => {
        selectedTeddy = resp ; 
-
        initPage();
-   });
-    
+   });  
 }
-
-
-
-
-// parce comme on a deja le bon teddy selectionné , on evite de refaire un appel a l'api pour demander encore des infos
-
 
 
 let addToCart = document.getElementById("addtocart_id");              //recupérer le btn input addtocart
